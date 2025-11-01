@@ -6,804 +6,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My-Portfolio</title>
     <link rel="icon" type="image/x-icon" href="img/person-square.svg">
+    <!-- Preconnects & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
     <!-- Font Awesome -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        body {
-            background-color: whitesmoke;
-            margin: 0;
-            overflow-x: hidden;
-        }
-
-        /* Profile panel */
-        .profile-panel {
-            position: fixed;
-            background-color: #222831;
-            color: #fff;
-            border-radius: 30px;
-            padding: 30px 20px;
-            box-shadow: 2px 0 12px rgba(0, 0, 0, 0.2);
-            bottom: 20px;
-            width: 300px;
-            height: 700px;
-            left: 30px;
-        }
-
-        .avatar {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid rgba(255, 255, 255, 0.6);
-            margin-bottom: 16px;
-        }
-
-        .name {
-            font-size: 1rem;
-            font-weight: 700;
-        }
-
-        .title {
-            font-size: 1.3rem;
-            color: #d1d5db;
-        }
-
-        .bio,
-        .bat {
-            font-size: 1rem;
-        }
-
-        .availability {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.12);
-            color: #eaffea;
-            padding: 6px 10px;
-            border-radius: 990px;
-            font-size: 1rem;
-            margin-top: 15px;
-        }
-
-        .socials {
-            margin-top: 18px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .socials a {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            left: 10px;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all .2s ease;
-            text-decoration: none;
-        }
-
-        .socials a:hover {
-            background-color: #ffffff;
-            color: #222831;
-        }
-
-        .cta-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .btn-ghost,
-        .btn-solid {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 24px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all .2s ease;
-            font-size: 1rem;
-        }
-
-        .btn-ghost {
-            color: #ffffff;
-            border: 2px solid #ffffff;
-        }
-
-        .btn-ghost:hover {
-            background: #ffffff;
-            color: #222831;
-        }
-
-        .btn-solid {
-            background: #00adb5;
-            color: #0a0f14;
-            border: 2px solid #00adb5;
-        }
-
-        .btn-solid:hover {
-            filter: brightness(1.1);
-        }
-
-        /* Right side nav */
-        .side-nav {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .nav-item {
-            position: relative;
-            width: 60px;
-            height: 60px;
-            background-color: white;
-            border: 2px solid white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-item i {
-            color: black;
-            font-size: 24px;
-        }
-
-        .nav-item:hover {
-            transform: scale(1.1);
-        }
-
-        .nav-item::before {
-            content: attr(data-title);
-            position: absolute;
-            right: 70px;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 6px 10px;
-            border-radius: 5px;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            font-size: 12px;
-        }
-
-        .nav-item:hover::before {
-            opacity: 1;
-        }
-
-        /* Layout grid */
-        .content-container {
-            margin-top: 40px;
-        }
-
-        /* Media Queries */
-        @media (max-width: 992px) {
-            .side-nav {
-                display: none;
-            }
-
-            .profile-panel {
-                text-align: center;
-            }
-
-            .avatar {
-                width: 180px;
-                height: 180px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .name {
-                font-size: 1.6rem;
-            }
-
-            .bio,
-            .bat,
-            .location {
-                font-size: 1rem;
-            }
-
-            .btn-ghost,
-            .btn-solid {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-        }
-
-        /* Visually center home hero with fixed left panel on wide screens */
-        @media (min-width: 1200px) {
-            .home-hero {
-                transform: translateX(-40px);
-            }
-        }
-
-        /* Home section */
-        .home-hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            /* center horizontally */
-            padding: 40px 10px;
-            text-align: center;
-            /* center text */
-        }
-
-        .home-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
-            color: #0f172a;
-            margin-bottom: 10px;
-        }
-
-        .home-subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.25rem);
-            color: #334155;
-            margin-bottom: 20px;
-        }
-
-        .home-ctas {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-
-        .btn-primary-hero {
-            background: #0ea5e9;
-            color: #fff;
-            border: none;
-            padding: 12px 18px;
-            border-radius: 10px;
-            font-weight: 700;
-            text-decoration: none;
-        }
-
-        .btn-primary-hero:hover {
-            filter: brightness(0.95);
-        }
-
-        .btn-secondary-hero {
-            background: #e2e8f0;
-            color: #111827;
-            border: none;
-            padding: 12px 18px;
-            border-radius: 10px;
-            font-weight: 700;
-            text-decoration: none;
-        }
-
-        .btn-secondary-hero:hover {
-            filter: brightness(0.95);
-        }
-
-        .home-badges {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .home-badge {
-            background: #f1f5f9;
-            color: #0f172a;
-            padding: 6px 10px;
-            border-radius: 999px;
-            font-size: 0.85rem;
-            border: 1px solid #e2e8f0;
-        }
-
-        /* Services grid (Home) */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-            margin-top: 24px;
-            width: 100%;
-            max-width: 980px;
-        }
-
-        .service-card {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 14px;
-            padding: 18px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-            transition: transform .2s ease, box-shadow .2s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-        }
-
-        .service-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            background: #e0f2fe;
-            color: #0ea5e9;
-            margin-bottom: 10px;
-            font-size: 22px;
-        }
-
-        .service-title {
-            font-size: 0.98rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin: 0;
-        }
-
-        @media (max-width: 1200px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 576px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* About section */
-        .section {
-            padding: 60px 10px;
-        }
-
-        .section-title {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            font-weight: 800;
-            color: #0f172a;
-            margin-bottom: 14px;
-        }
-
-        .section-lead {
-            color: #334155;
-            font-size: 1rem;
-            margin-bottom: 24px;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 18px;
-        }
-
-        .about-card {
-            width: 910px;
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 14px;
-            padding: 16px;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-        }
-
-        .about-facts {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .about-facts li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 0;
-            color: #0f172a;
-        }
-
-        .about-facts i {
-            color: #0ea5e9;
-        }
-
-        @media (max-width: 992px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Skills Section Styles */
-        .skills-container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .skill-category {
-            margin-bottom: 24px;
-        }
-
-        .skill-category-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 12px;
-            text-align: left;
-        }
-
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            justify-content: flex-start;
-        }
-
-        .skill-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: #f1f5f9;
-            color: #0f172a;
-            padding: 6px 10px;
-            border-radius: 999px;
-            font-size: 0.85rem;
-            border: 1px solid #e2e8f0;
-            transition: all 0.2s ease;
-        }
-
-        .skill-badge:hover {
-            background: #e2e8f0;
-            transform: translateY(-1px);
-        }
-
-        .skill-badge i {
-            font-size: 0.95rem;
-        }
-
-        /* Projects grid and card styles */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
-            margin-top: 28px;
-            width: 100%;
-            max-width: 980px;
-        }
-
-        .project-card {
-            position: relative;
-            background: #fff;
-            border: 1px solid #e5e7eb;
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-            transition: transform .2s, box-shadow .2s;
-            display: flex;
-            flex-direction: column;
-            align-items: stretch;
-        }
-
-        .project-card:hover {
-            transform: translateY(-3px) scale(1.03);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.10);
-        }
-
-        .project-img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .project-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.18) 40%, rgba(0, 0, 0, 0.55) 100%);
-            opacity: 0;
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-end;
-            padding: 16px;
-            transition: opacity 0.3s;
-        }
-
-        .project-card:hover .project-overlay {
-            opacity: 1;
-        }
-
-        .github-link {
-            background: #fff;
-            color: #222831;
-            border-radius: 50%;
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
-            text-decoration: none;
-            transition: background 0.2s, color 0.2s;
-        }
-
-        .github-link:hover {
-            background: #0ea5e9;
-            color: #fff;
-        }
-
-        .project-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #0f172a;
-            background: #f1f5f9;
-            padding: 12px 0 10px 0;
-            text-align: center;
-            border-top: 1px solid #e5e7eb;
-        }
-
-        @media (max-width: 1200px) {
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project-img {
-                height: 140px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .skill-category-title {
-                font-size: 1rem;
-            }
-
-            .skill-badge {
-                padding: 5px 9px;
-                font-size: 0.8rem;
-            }
-        }
-
-        /* Section Card Styles */
-
-        .main-content {
-            min-height: 100vh;
-        }
-
-        .section-card {
-            margin: 0 auto 24px auto;
-            width: 100%;
-            max-width: 980px;
-            min-height: 60vh;
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 16px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            padding: 40px;
-            transition: all 0.3s ease;
-            display: none;
-        }
-
-        .section-card.active {
-            display: block;
-        }
-
-        .section-card:hover {
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.08);
-            transform: translateY(-2px);
-        }
-
-        .section-card-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            max-width: 100%;
-        }
-
-        /* Responsive card padding */
-        @media (max-width: 1200px) {
-            .section-card {
-                width: 100%;
-                max-width: 100vw;
-                left: 0;
-                right: 0;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .section-card {
-                padding: 16px;
-                margin-bottom: 12px;
-            }
-        }
-
-        /* Resume/Experience timeline styles */
-        .resume-section {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto 24px auto;
-            text-align: left;
-        }
-
-        .resume-section-title {
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: #0f172a;
-            margin-bottom: 12px;
-        }
-
-        .timeline {
-            position: relative;
-            margin-left: 16px;
-            padding-left: 24px;
-            border-left: 2px solid #e5e7eb;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 16px;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: -9px;
-            top: 6px;
-            width: 12px;
-            height: 12px;
-            background: #0ea5e9;
-            border-radius: 50%;
-            border: 2px solid #fff;
-            box-shadow: 0 0 0 2px #e5e7eb;
-        }
-
-        .timeline-content {
-            background: #fff;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 12px 14px;
-        }
-
-        .timeline-date {
-            font-size: 0.85rem;
-            color: #64748b;
-            margin-bottom: 4px;
-        }
-
-        .timeline-title {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin: 0 0 4px 0;
-        }
-
-        .timeline-institution {
-            font-size: 0.92rem;
-            color: #334155;
-            margin: 0 0 8px 0;
-        }
-
-        .timeline-description {
-            font-size: 0.95rem;
-            color: #334155;
-            margin: 0;
-        }
-
-        .resume-download {
-            text-align: center;
-            margin-top: 16px;
-        }
-
-        .btn-download-resume {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 16px;
-            background: #0ea5e9;
-            color: #fff;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        .btn-download-resume:hover {
-            filter: brightness(0.95);
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <!-- Mobile hamburger (visible on small screens) -->
+    <button id="hamburger" class="hamburger-btn" aria-label="Open navigation" aria-expanded="false">
+        <span class="bar" aria-hidden="true"></span>
+    </button>
+
+    <!-- Mobile nav (dialog) -->
+    <div id="mobile-nav" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="mobile-nav-inner" role="document">
+            <button class="close-btn" id="mobile-close" aria-label="Close navigation">Close ✕</button>
+            <nav class="mobile-nav-links" aria-label="Mobile sections">
+                <a href="#home" class="mobile-link">Home</a>
+                <a href="#about" class="mobile-link">About</a>
+                <a href="#skills" class="mobile-link">Skills</a>
+                <a href="#projects" class="mobile-link">Projects</a>
+                <a href="#resume" class="mobile-link">Resume</a>
+                <a href="#experience" class="mobile-link">Experience</a>
+            </nav>
+        </div>
+    </div>
     <div class="container-fluid content-container">
-        <div class="row"
-            style="display: grid; grid-template-columns: 320px 1fr 80px; align-items: start; min-height: 100vh;">
+        <div class="row layout-grid">
             <!-- Profile Panel -->
             <div>
                 <aside class="profile-panel text-center">
-                    <img class="avatar" src="img/Profile.png?text=Your+Photo" alt="Profile" />
+                    <img class="avatar" src="img/Profile.png?text=Your+Photo" alt="Profile" loading="lazy" />
                     <div class="name">ARUNAGIRINATHAN K</div>
                     <div class="title">Data Scientist</div>
                     <div class="bio">AI • DS • ML • Full-Stack</div>
                     <!--<div class="bat">🎓 B.Tech in AI & DS (2023–27)</div>-->
-                    <div class="availability"><i class="fas fa-circle" style="color:#22c55e;"></i> Open to work •
+                    <div class="availability"><i class="fas fa-circle status-dot" aria-hidden="true"></i> Open to work •
                         Freelance</div>
 
-                    <div class="socials">
-                        <a href="https://www.linkedin.com/in/arunagirinathan-k/" target="_blank" aria-label="LinkedIn"><i
-                                class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/ARUNAGIRINATHAN-K" target="_blank" aria-label="GitHub"><i
-                                class="fab fa-github"></i></a>
-                        <a href="https://www.hackerrank.com/profile/arun31_march_2k6" target="_blank" aria-label="HackerRank"><i
-                                class="fab fa-hackerrank"></i></a>
-                        <a href="https://leetcode.com/u/ARUNAGIRINATHAN/" target="_blank" aria-label="LeetCode">
+            <div class="socials">
+            <a href="https://www.linkedin.com/in/arunagirinathan-k/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i
+                class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/ARUNAGIRINATHAN-K" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
+                class="fab fa-github"></i></a>
+            <a href="https://www.hackerrank.com/profile/arun31_march_2k6" target="_blank" rel="noopener noreferrer" aria-label="HackerRank"><i
+                class="fab fa-hackerrank"></i></a>
+            <a href="https://leetcode.com/u/ARUNAGIRINATHAN/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode">
                             <svg viewBox="0 0 24 24" fill="currentColor" style="width:26px;height:26px">
                                 <path
                                     d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z" />
                             </svg>
                         </a>
-                        <a href="https://www.kaggle.com/arunsworkspace" target="_blank" aria-label="Kaggle"><i
-                                class="fab fa-kaggle"></i></a>
-                        <a href="https://huggingface.co/ARUNAGIRINATHAN" target="_blank" aria-label="Hugging Face">
+            <a href="https://www.kaggle.com/arunsworkspace" target="_blank" rel="noopener noreferrer" aria-label="Kaggle"><i
+                class="fab fa-kaggle"></i></a>
+            <a href="https://huggingface.co/ARUNAGIRINATHAN" target="_blank" rel="noopener noreferrer" aria-label="Hugging Face">
                             <svg viewBox="0 0 24 24" fill="currentColor" style="width:26px;height:26px">
                                 <path
                                     d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2.286c5.355 0 9.714 4.359 9.714 9.714S17.355 21.714 12 21.714 2.286 17.355 2.286 12 6.645 2.286 12 2.286zM7.714 8.571c-.63 0-1.143.513-1.143 1.143s.513 1.143 1.143 1.143 1.143-.513 1.143-1.143-.513-1.143-1.143-1.143zm8.572 0c-.63 0-1.143.513-1.143 1.143s.513 1.143 1.143 1.143 1.143-.513 1.143-1.143-.513-1.143-1.143-1.143zM12 13.714c-2.525 0-4.571 1.367-4.571 3.048 0 .842.842 1.524 1.905 1.524h5.333c1.063 0 1.905-.682 1.905-1.524 0-1.681-2.047-3.048-4.572-3.048z" />
                             </svg>
                         </a>
-                        <a href="https://medium.com/" target="_blank" aria-label="Medium"><i
-                                class="fab fa-medium"></i></a>
-                        <a href="https://www.instagram.com/_arunagirinathan_k" target="_blank" aria-label="Instagram"><i
-                                class="fab fa-instagram"></i></a>
+            <a href="https://medium.com/" target="_blank" rel="noopener noreferrer" aria-label="Medium"><i
+                class="fab fa-medium"></i></a>
+            <a href="https://www.instagram.com/_arunagirinathan_k" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i
+                class="fab fa-instagram"></i></a>
                     </div>
 
                     <div class="cta-buttons">
                         <a class="btn-ghost" href="mailto:arun31.march.2k6@gmail.com"><i
                                 class="fas fa-envelope"></i>Email</a>
-                        <a class="btn-solid" href="#resume"><i class="fas fa-file-arrow-down"></i>Resume</a>
+                        <a class="btn-solid" href="#resume" aria-label="Open Resume"><i class="fas fa-file-arrow-down"></i>Resume</a>
                     </div>
                 </aside>
             </div>
 
             <!-- Main content -->
             <div>
-                <main class="main-content">
+                <main id="main-content" class="main-content">
                     <div class="section-card" id="section-home">
                         <section id="home" class="section-card-content">
                             <h1 class="home-title">Hi, I'm ARUNAGIRINATHAN</h1><br>
                             <p class="home-subtitle">AI & Full-Stack Developer building the future with Artificial
                                 Intelligence, Data Science, and modern web technologies</p>
                             <div class="home-ctas">
-                                <a href="#projects" class="btn-primary-hero"><i class="fas fa-rocket"></i> View
+                                <a href="#projects" class="btn-primary-hero" aria-label="View Projects"><i class="fas fa-rocket"></i> View
                                     Projects</a>
-                                <a href="#resume" class="btn-secondary-hero"><i class="fas fa-file"></i> My Resume</a>
+                                <a href="#resume" class="btn-secondary-hero" aria-label="Open Resume"><i class="fas fa-file"></i> My Resume</a>
                             </div>
                             <!-- Services I Provide -->
                             <div class="services-grid">
@@ -933,98 +235,98 @@
                             <h2 class="section-title">Projects</h2>
                             <div class="projects-grid">
                                 <div class="project-card">
-                                    <img src="img/Project/Neural-networks.png" alt="Project 1" class="project-img">
+                                    <img src="img/Project/Neural-networks.png" alt="Project 1" class="project-img" loading="lazy">
                                     <div class="project-overlay">
                                         <a href="https://github.com/ARUNAGIRINATHAN-K/neural-networks-from-scratch-math-projects"
-                                            target="_blank" class="github-link"><i class="fab fa-github"></i></a>
+                                            target="_blank" rel="noopener noreferrer" class="github-link"><i class="fab fa-github"></i></a>
                                     </div>
                                     <div class="project-title">Neural Network Mathematics</div>
                                 </div>
                                 <div class="project-card">
-                                    <img src="img/Project/Carbon-footprint.avif" alt="Project 2" class="project-img">
+                                    <img src="img/Project/Carbon-footprint.avif" alt="Project 2" class="project-img" loading="lazy">
                                     <div class="project-overlay">
                                         <a href="https://github.com/ARUNAGIRINATHAN-K/Carbon-Footprint-Calculator"
-                                            target="_blank" class="github-link"><i class="fab fa-github"></i></a>
+                                            target="_blank" rel="noopener noreferrer" class="github-link"><i class="fab fa-github"></i></a>
                                     </div>
                                     <div class="project-title">Carbon Footprint Calculator</div>
                                 </div>
                                 <div class="project-card">
-                                    <img src="img/Project/Floramind.jpg" alt="Project 3" class="project-img">
+                                    <img src="img/Project/Floramind.jpg" alt="Project 3" class="project-img" loading="lazy">
                                     <div class="project-overlay">
                                         <a href="https://github.com/ARUNAGIRINATHAN-K/FloraMind" target="_blank"
-                                            class="github-link"><i class="fab fa-github"></i></a>
+                                            rel="noopener noreferrer" class="github-link"><i class="fab fa-github"></i></a>
                                     </div>
                                     <div class="project-title">FloraMind Flower Classifier</div>
                                 </div>
                                 <div class="project-card">
-                                    <img src="img/Project/Resume.png" alt="Project 4" class="project-img">
+                                    <img src="img/Project/Resume.png" alt="Project 4" class="project-img" loading="lazy">
                                     <div class="project-overlay">
                                         <a href="https://github.com/ARUNAGIRINATHAN-K/Resume_Analyzer" target="_blank"
-                                            class="github-link"><i class="fab fa-github"></i></a>
+                                            rel="noopener noreferrer" class="github-link"><i class="fab fa-github"></i></a>
                                     </div>
                                     <div class="project-title">Resume Job <br> Fit Analyzer</div>
                                 </div>
                                 <div class="project-card">
-                                    <img src="img/Project/meeting.jpg" alt="Project 1" class="project-img">
+                                    <img src="img/Project/meeting.jpg" alt="Project 1" class="project-img" loading="lazy">
                                     <div class="project-overlay">
                                         <a href="https://github.com/ARUNAGIRINATHAN-K/AI-Meeting-Summarizer"
-                                            target="_blank" class="github-link"><i class="fab fa-github"></i></a>
+                                            target="_blank" rel="noopener noreferrer" class="github-link"><i class="fab fa-github"></i></a>
                                     </div>
                                     <div class="project-title">Meeting <br>Summarizer</div>
                                 </div>
                                 <div class="project-card">
-                                    <img src="img/Project/NLP.jpg" alt="Project 2" class="project-img">
+                                    <img src="img/Project/NLP.jpg" alt="Project 2" class="project-img" loading="lazy">
                                     <div class="project-overlay">
                                         <a href="https://github.com/ARUNAGIRINATHAN-K/Text-Classifier-using-NLP_Techniques"
-                                            target="_blank" class="github-link"><i class="fab fa-github"></i></a>
+                                            target="_blank" rel="noopener noreferrer" class="github-link"><i class="fab fa-github"></i></a>
                                     </div>
                                     <div class="project-title">Text Classifier <br>using NLP</div>
                                 </div>
                                 <div class="project-card">
-                                    <img src="img/Project/wine.png" alt="Project 3" class="project-img">
+                                    <img src="img/Project/wine.png" alt="Project 3" class="project-img" loading="lazy">
                                     <div class="project-overlay">
                                         <a href="https://github.com/ARUNAGIRINATHAN-K/wine-quality-analysis"
-                                            target="_blank" class="github-link"><i class="fab fa-github"></i></a>
+                                            target="_blank" rel="noopener noreferrer" class="github-link"><i class="fab fa-github"></i></a>
                                     </div>
                                     <div class="project-title">Wine Quality<br> Analysis</div>
                                 </div>
                                 <div class="project-card">
-                                    <img src="img/Project/event.jpg" alt="Project 4" class="project-img">
+                                    <img src="img/Project/event.jpg" alt="Project 4" class="project-img" loading="lazy">
                                     <div class="project-overlay">
                                         <a href="https://github.com/ARUNAGIRINATHAN-K/Event-Management-system"
-                                            target="_blank" class="github-link"><i class="fab fa-github"></i></a>
+                                            target="_blank" rel="noopener noreferrer" class="github-link"><i class="fab fa-github"></i></a>
                                     </div>
                                     <div class="project-title">Event Management<br> System</div>
                                 </div>
                                 <div class="project-card">
-                                    <img src="img/Project/portfolio.jpg" alt="Project 1" class="project-img">
+                                    <img src="img/Project/portfolio.jpg" alt="Project 1" class="project-img" loading="lazy">
                                     <div class="project-overlay">
                                         <a href="https://github.com/ARUNAGIRINATHAN-K/My-Portfolio" target="_blank"
-                                            class="github-link"><i class="fab fa-github"></i></a>
+                                            rel="noopener noreferrer" class="github-link"><i class="fab fa-github"></i></a>
                                     </div>
                                     <div class="project-title">My Portfolio</div>
                                 </div>
                                 <div class="project-card">
-                                    <img src="img/Project/mnist.png" alt="Project 2" class="project-img">
+                                    <img src="img/Project/mnist.png" alt="Project 2" class="project-img" loading="lazy">
                                     <div class="project-overlay">
                                         <a href="https://github.com/ARUNAGIRINATHAN-K/MNIST-Progressive-ANN"
-                                            target="_blank" class="github-link"><i class="fab fa-github"></i></a>
+                                            target="_blank" rel="noopener noreferrer" class="github-link"><i class="fab fa-github"></i></a>
                                     </div>
                                     <div class="project-title">MNIST Progressive ANN</div>
                                 </div>
                                 <div class="project-card">
-                                    <img src="img/Project/DS.png" alt="Project 3" class="project-img">
+                                    <img src="img/Project/DS.png" alt="Project 3" class="project-img" loading="lazy">
                                     <div class="project-overlay">
                                         <a href="https://github.com/ARUNAGIRINATHAN-K/Data-Science-Portfolio"
-                                            target="_blank" class="github-link"><i class="fab fa-github"></i></a>
+                                            target="_blank" rel="noopener noreferrer" class="github-link"><i class="fab fa-github"></i></a>
                                     </div>
                                     <div class="project-title">Data Science<br> Project Portfolio</div>
                                 </div>
                                 <div class="project-card">
-                                    <img src="img/Project/retail.png" alt="Project 4" class="project-img">
+                                    <img src="img/Project/retail.png" alt="Project 4" class="project-img" loading="lazy">
                                     <div class="project-overlay">
                                         <a href="https://github.com/ARUNAGIRINATHAN-K/Retail-Transaction-Analytics"
-                                            target="_blank" class="github-link"><i class="fab fa-github"></i></a>
+                                            target="_blank" rel="noopener noreferrer" class="github-link"><i class="fab fa-github"></i></a>
                                     </div>
                                     <div class="project-title">Retail Transaction<br> Analytics</div>
                                 </div>
@@ -1175,9 +477,9 @@
                                             <div class="timeline-date">2025 - Present</div>
                                             <h4 class="timeline-title">Full Stack Developer</h4>
                                             <p class="timeline-institution">Job Training</p>
-                                            <p class="timeline-description">I design and build full‑stack web applications clean UIs, 
-                                                reliable backends using AI, data-driven logic, and modern web tech for scalable,
-                                                user friendly solutions.</p>
+                                            <p class="timeline-description">Delivering AI/ML solutions, data analytics
+                                                dashboards, and full‑stack web apps for clients. Focus on Python,
+                                                TensorFlow/PyTorch, and modern JS stacks.</p>
                                         </div>
                                     </div>
                                     <div class="timeline-item">
@@ -1224,55 +526,15 @@
 
     <!-- Right floating navigation -->
     <div></div>
-    <nav class="side-nav">
-        <a href="#home" class="nav-item" data-title="Home"><i class="fas fa-home"></i></a>
-        <a href="#about" class="nav-item" data-title="About"><i class="fas fa-user"></i></a>
-        <a href="#skills" class="nav-item" data-title="Skills"><i class="fas fa-code"></i></a>
-        <a href="#projects" class="nav-item" data-title="Projects"><i class="fas fa-folder-open"></i></a>
-        <a href="#resume" class="nav-item" data-title="Resume"><i class="fas fa-file-alt"></i></a>
-        <a href="#experience" class="nav-item" data-title="Experience"><i class="fas fa-briefcase"></i></a>
+    <nav class="side-nav" role="navigation" aria-label="Main sections">
+        <a href="#home" class="nav-item" data-title="Home" aria-label="Home"><i class="fas fa-home"></i></a>
+        <a href="#about" class="nav-item" data-title="About" aria-label="About"><i class="fas fa-user"></i></a>
+        <a href="#skills" class="nav-item" data-title="Skills" aria-label="Skills"><i class="fas fa-code"></i></a>
+        <a href="#projects" class="nav-item" data-title="Projects" aria-label="Projects"><i class="fas fa-folder-open"></i></a>
+        <a href="#resume" class="nav-item" data-title="Resume" aria-label="Resume"><i class="fas fa-file-alt"></i></a>
+        <a href="#experience" class="nav-item" data-title="Experience" aria-label="Experience"><i class="fas fa-briefcase"></i></a>
     </nav>
-    <script>
-         document.addEventListener("contextmenu", function(event){
-            event.preventDefault(); // Prevents the default context menu from appearing
-        }); 
-        // Show only the selected section card when nav item is clicked
-        document.addEventListener('DOMContentLoaded', function () {
-            function showSection(section) {
-                document.querySelectorAll('.section-card').forEach(function (card) {
-                    card.classList.remove('active');
-                });
-                var el = document.getElementById('section-' + section);
-                if (el) el.classList.add('active');
-            }
-            // Initial: show home
-            showSection('home');
-            // Side nav
-            document.querySelectorAll('.side-nav .nav-item').forEach(function (item) {
-                item.addEventListener('click', function (e) {
-                    var href = item.getAttribute('href');
-                    if (href && href.startsWith('#')) {
-                        var section = href.substring(1);
-                        showSection(section);
-                        e.preventDefault();
-                    }
-                });
-            });
-            // CTAs
-            document.querySelectorAll('a[href="#projects"]').forEach(function (btn) {
-                btn.addEventListener('click', function (e) {
-                    showSection('projects');
-                    e.preventDefault();
-                });
-            });
-            document.querySelectorAll('a[href="#resume"]').forEach(function (btn) {
-                btn.addEventListener('click', function (e) {
-                    showSection('resume');
-                    e.preventDefault();
-                });
-            });
-        });
-    </script>
+    <script defer src="scripts.js"></script>
 
 </body>
 
