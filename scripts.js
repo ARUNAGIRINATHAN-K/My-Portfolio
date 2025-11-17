@@ -1,5 +1,5 @@
 // scripts.js - extracted from index.html
-// Lightweight UI helpers: section switching, mobile nav, dark mode
+// Lightweight UI helpers: section switching, mobile nav
 // Keep the contextmenu handler at top level to run early
 document.addEventListener("contextmenu", function (event) {
     // keep this if you intentionally want to disable right-click
@@ -142,36 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Dark mode toggle: respects localStorage, falls back to prefers-color-scheme
-    var darkToggle = document.getElementById('dark-toggle');
-    var rootEl = document.documentElement;
-
-    function applyTheme(theme) {
-        if (theme === 'dark') {
-            rootEl.setAttribute('data-theme', 'dark');
-            if (darkToggle) darkToggle.setAttribute('aria-pressed', 'true');
-        } else {
-            rootEl.removeAttribute('data-theme');
-            if (darkToggle) darkToggle.setAttribute('aria-pressed', 'false');
-        }
-    }
-
-    function initTheme() {
-        var stored = localStorage.getItem('theme');
-        if (stored) { applyTheme(stored); return; }
-        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        applyTheme(prefersDark ? 'dark' : 'light');
-    }
-
-    if (darkToggle) {
-        darkToggle.addEventListener('click', function () {
-            var isDark = rootEl.getAttribute('data-theme') === 'dark';
-            var next = isDark ? 'light' : 'dark';
-            applyTheme(next);
-            try { localStorage.setItem('theme', next); } catch (e) { /* ignore */ }
-        });
-    }
-    initTheme();
+    // Dark mode toggle removed per request; theme is static
 
 });
 
