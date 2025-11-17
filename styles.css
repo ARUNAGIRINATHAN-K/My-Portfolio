@@ -4,7 +4,7 @@
     --bg: whitesmoke;
     --card: #ffffff;
     --surface: #f1f5f9;
-    --text: #0f172a;
+    --text: #000000;
     --muted: #64748b;
     --border: #e5e7eb;
     --muted-weak: #e2e8f0;
@@ -144,7 +144,7 @@ body {
 /* Home hero */
 .home-hero { min-height: 100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:40px 10px; text-align:center; }
 .home-title { font-size: clamp(2rem, 4vw, 3rem); font-weight:800; color:var(--text); margin-bottom:10px; }
-.home-subtitle { font-size: clamp(1rem, 2.5vw, 1.25rem); color: #334155; margin-bottom:20px; }
+.home-subtitle { font-size: clamp(1rem, 2.5vw, 1.25rem); color: var(--text); margin-bottom:20px; }
 .home-ctas { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:20px; }
 .btn-primary-hero { background: var(--brand); color:#fff; border:none; padding:12px 18px; border-radius:10px; font-weight:700; text-decoration:none; }
 .btn-secondary-hero { background:#e2e8f0; color:#111827; border:none; padding:12px 18px; border-radius:10px; font-weight:700; text-decoration:none; }
@@ -163,8 +163,8 @@ body {
 
 /* About */
 .section { padding:60px 10px; }
-.section-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight:800; color:var(--text); margin-bottom:14px; }
-.section-lead { color:#334155; font-size:1rem; margin-bottom:24px; }
+.section-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight:800; color: var(--text); margin-bottom:14px; }
+.section-lead { color: var(--text); font-size:1rem; margin-bottom:24px; }
 .about-grid { display:grid; grid-template-columns: 1.2fr 1fr; gap:18px; }
 .about-card { width: 910px; background: var(--card); border:1px solid var(--muted-weak); border-radius:14px; padding:16px; box-shadow:0 1px 2px rgba(0,0,0,0.04); }
 @media (max-width:992px) { .about-grid { grid-template-columns:1fr; } }
@@ -204,8 +204,8 @@ body {
 .timeline-content { background: var(--card); border:1px solid var(--border); border-radius:12px; padding:12px 14px; }
 .timeline-date { font-size:0.85rem; color:var(--muted); margin-bottom:4px; }
 .timeline-title { font-size:1rem; font-weight:700; color:var(--text); margin:0 0 4px 0; }
-.timeline-institution { font-size:0.92rem; color:#334155; margin:0 0 8px 0; }
-.timeline-description { font-size:0.95rem; color:#334155; margin:0; }
+.timeline-institution { font-size:0.92rem; color: var(--text); margin:0 0 8px 0; }
+.timeline-description { font-size:0.95rem; color: var(--text); margin:0; }
 .resume-download { text-align:center; margin-top:16px; }
 .btn-download-resume { display:inline-flex; align-items:center; gap:10px; padding:10px 16px; background:var(--brand); color:#fff; border-radius:10px; text-decoration:none; font-weight:700; }
 
@@ -610,17 +610,17 @@ body {
         }
 
         .section-title {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            font-weight: 800;
-            color: #0f172a;
-            margin-bottom: 14px;
-        }
+                    font-size: clamp(1.5rem, 3vw, 2rem);
+                    font-weight: 800;
+                    color: var(--text);
+                    margin-bottom: 14px;
+                }
 
         .section-lead {
-            color: #334155;
-            font-size: 1rem;
-            margin-bottom: 24px;
-        }
+                    color: var(--text);
+                    font-size: 1rem;
+                    margin-bottom: 24px;
+                }
 
         .about-grid {
             display: grid;
@@ -644,12 +644,12 @@ body {
         }
 
         .about-facts li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 0;
-            color: #0f172a;
-        }
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    padding: 8px 0;
+                    color: var(--text);
+                }
 
         .about-facts i {
             color: #0ea5e9;
@@ -673,12 +673,12 @@ body {
         }
 
         .skill-category-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 12px;
-            text-align: left;
-        }
+                    font-size: 1.1rem;
+                    font-weight: 700;
+                    color: var(--text);
+                    margin-bottom: 12px;
+                    text-align: left;
+                }
 
         .skills-grid {
             display: flex;
@@ -688,17 +688,17 @@ body {
         }
 
         .skill-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: #f1f5f9;
-            color: #0f172a;
-            padding: 6px 10px;
-            border-radius: 999px;
-            font-size: 0.85rem;
-            border: 1px solid #e2e8f0;
-            transition: all 0.2s ease;
-        }
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 6px;
+                    background: #f1f5f9;
+                    color: var(--text);
+                    padding: 6px 10px;
+                    border-radius: 999px;
+                    font-size: 0.85rem;
+                    border: 1px solid #e2e8f0;
+                    transition: all 0.2s ease;
+                }
 
         .skill-badge:hover {
             background: #e2e8f0;
@@ -784,14 +784,14 @@ body {
         }
 
         .project-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #0f172a;
-            background: #f1f5f9;
-            padding: 12px 0 10px 0;
-            text-align: center;
-            border-top: 1px solid #e5e7eb;
-        }
+                    font-size: 1.05rem;
+                    font-weight: 700;
+                    color: var(--text);
+                    background: #f1f5f9;
+                    padding: 12px 0 10px 0;
+                    text-align: center;
+                    border-top: 1px solid #e5e7eb;
+                }
 
         @media (max-width: 1200px) {
             .projects-grid {
@@ -928,23 +928,23 @@ body {
         }
 
         .timeline-title {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin: 0 0 4px 0;
-        }
+                    font-size: 1rem;
+                    font-weight: 700;
+                    color: var(--text);
+                    margin: 0 0 4px 0;
+                }
 
         .timeline-institution {
-            font-size: 0.92rem;
-            color: #334155;
-            margin: 0 0 8px 0;
-        }
+                    font-size: 0.92rem;
+                    color: var(--text);
+                    margin: 0 0 8px 0;
+                }
 
         .timeline-description {
-            font-size: 0.95rem;
-            color: #334155;
-            margin: 0;
-        }
+                    font-size: 0.95rem;
+                    color: var(--text);
+                    margin: 0;
+                }
 
         .resume-download {
             text-align: center;
