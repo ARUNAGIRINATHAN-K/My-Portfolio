@@ -7,6 +7,27 @@ document.addEventListener("contextmenu", function (event) {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+    // Initialize view counter
+    function initializeViewCounter() {
+        const viewCountKey = 'portfolio-view-count';
+        let currentCount = localStorage.getItem(viewCountKey);
+        
+        if (currentCount === null) {
+            currentCount = 1;
+        } else {
+            currentCount = parseInt(currentCount) + 1;
+        }
+        
+        localStorage.setItem(viewCountKey, currentCount);
+        
+        const viewCountElement = document.getElementById('view-count');
+        if (viewCountElement) {
+            viewCountElement.textContent = currentCount;
+        }
+    }
+    
+    initializeViewCounter();
+
     function showSection(section) {
         document.querySelectorAll('.section-card').forEach(function (card) {
             card.classList.remove('active');

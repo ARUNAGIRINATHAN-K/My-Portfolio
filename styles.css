@@ -120,6 +120,34 @@ body {
 .btn-solid { background: var(--accent); color: #0a0f14; border: 2px solid var(--accent); }
 .btn-solid:hover { filter: brightness(1.05); }
 
+/* View counter */
+.view-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.view-counter i {
+    color: var(--accent);
+    font-size: 1.1rem;
+}
+
+.view-counter #view-count {
+    font-weight: 700;
+    color: var(--brand);
+    font-size: 1.1rem;
+}
+
+.view-label {
+    font-size: 0.9rem;
+}
+
 /* Right side nav */
 .side-nav { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); z-index: 1000; display:flex; flex-direction:column; gap:15px; }
 .nav-item { position: relative; width: 60px; height: 60px; background-color: var(--card); border:2px solid var(--card); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; transition: all 0.3s ease; text-decoration:none; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
