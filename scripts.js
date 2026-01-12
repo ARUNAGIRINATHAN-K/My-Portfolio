@@ -28,6 +28,80 @@ document.addEventListener('DOMContentLoaded', function () {
     
     initializeViewCounter();
 
+    // Initialize Scroll Animations (Fade-in effect)
+    function initScrollAnimations() {
+        const elements = document.querySelectorAll('.section-card, .stat-card, .project-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in', 'visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        elements.forEach(el => {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        });
+    }
+    
+    initScrollAnimations();
+
+    // Initialize Back-to-Top Button
+    function initBackToTop() {
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        if (!backToTopBtn) {
+            const btn = document.createElement('button');
+            btn.id = 'back-to-top';
+            btn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+            btn.setAttribute('aria-label', 'Back to top');
+            document.body.appendChild(btn);
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    btn.classList.add('show');
+                } else {
+                    btn.classList.remove('show');
+                }
+            });
+            
+            btn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+    }
+    
+    initBackToTop();
+
+    // Initialize Particle Background
+    function initParticleBackground() {
+        const particleBg = document.querySelector('.particle-bg');
+        if (!particleBg) {
+            const bg = document.createElement('div');
+            bg.className = 'particle-bg';
+            document.body.insertBefore(bg, document.body.firstChild);
+            
+            // Create particles
+            for (let i = 0; i < 15; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                particle.style.animationDuration = (Math.random() * 15 + 20) + 's';
+                bg.appendChild(particle);
+            }
+        }
+    }
+    
+    initParticleBackground();
+
     function showSection(section) {
         document.querySelectorAll('.section-card').forEach(function (card) {
             card.classList.remove('active');
