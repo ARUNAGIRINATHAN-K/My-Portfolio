@@ -788,18 +788,22 @@ h2.section-title {
     z-index: 101;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
+/* Responsive - comprehensive adjustments for mobile */
+@media (max-width: 1000px) {
     .hero-glass, .about-grid, .contact-content, .resume-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
-    
+
+    .projects-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
     .hero-image {
         order: -1;
     }
-    
+
     .name {
-        font-size: 2.5rem;
+        font-size: 2.6rem;
     }
 }
 
@@ -807,7 +811,7 @@ h2.section-title {
     .hamburger {
         display: block;
     }
-    
+
     .nav-links {
         position: fixed;
         top: 0;
@@ -821,23 +825,103 @@ h2.section-title {
         justify-content: center;
         transition: right 0.4s ease;
         z-index: 100;
-        gap: 40px;
+        gap: 28px;
+        padding: 40px 20px;
     }
-    
+
     .nav-links.nav-active {
         right: 0;
     }
-    
+
+    /* overlay removed — no overlay styling */
+
     .nav-links li {
-        font-size: 1.5rem;
+        font-size: 1.35rem;
     }
+
+    .nav-social-top {
+        gap: 16px;
+        margin-left: 8px;
+        padding-left: 10px;
+    }
+
+    .nav-social-top a, .social-links a {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-img {
+        height: 160px;
+    }
+
+    .project-info {
+        padding: 18px;
+    }
+
+    .hero-glass {
+        gap: 24px;
+        padding: 36px;
+    }
+
+    .about-grid {
+        gap: 24px;
+    }
+
+    .about-image .about-badge img {
+        height: 48px;
+    }
+
+    .typewriter-container { font-size: 1.2rem; height: 30px; }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
     .glass-container {
-        padding: 30px 20px;
+        padding: 20px 16px;
     }
+
     .action-buttons {
         flex-direction: column;
+        gap: 12px;
     }
+
+    .name {
+        font-size: 2.2rem;
+    }
+
+    h2.section-title { font-size: 1.8rem; }
+
+    .tech-stack-icons {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        padding-bottom: 6px;
+    }
+
+    .tech-stack-icons img { height: 28px; margin-right: 8px; }
+
+    .about-stats-container { gap: 12px; }
+
+    .resume-content, .contact-content { grid-template-columns: 1fr !important; }
+
+    .project-img { height: 140px; }
+
+    .cursor { display: inline-block; }
+
+    .logo .logo-text { font-size: 1.05rem; }
+
+    .nav-social-top { display: flex; gap: 10px; }
+
+    /* ensure hugging face icon keeps color and scales */
+    .hugging-face-icon { width: 22px; height: 22px; }
 }
+
+/* Small tweaks for clickable areas on all small screens */
+@media (max-width: 900px) {
+    .nav-links li, .nav-links a { padding: 8px 12px; }
+}
+

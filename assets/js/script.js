@@ -5,19 +5,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger');
     const navLinksContainer = document.querySelector('.nav-links');
 
+    // Improved hamburger behaviour + accessibility (no overlay)
+    function openNav() {
+        navLinksContainer.classList.add('nav-active');
+        hamburger.setAttribute('aria-expanded', 'true');
+        const icon = hamburger.querySelector('i');
+        if (icon) { icon.classList.remove('fa-bars'); icon.classList.add('fa-times'); }
+        // focus first link
+        const firstLink = navLinksContainer.querySelector('a, li');
+        if (firstLink && typeof firstLink.focus === 'function') firstLink.focus();
+    }
+
+    function closeNav() {
+        navLinksContainer.classList.remove('nav-active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        const icon = hamburger.querySelector('i');
+        if (icon) { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); }
+    }
+
     if (hamburger) {
-        hamburger.addEventListener('click', () => {
-            navLinksContainer.classList.toggle('nav-active');
-            const icon = hamburger.querySelector('i');
-            if (navLinksContainer.classList.contains('nav-active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (navLinksContainer.classList.contains('nav-active')) closeNav();
+            else openNav();
         });
     }
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navLinksContainer.classList.contains('nav-active')) {
+            closeNav();
+        }
+    });
+
+    // Close when clicking outside (safety)
+    document.addEventListener('click', (e) => {
+        if (!navLinksContainer.contains(e.target) && !hamburger.contains(e.target) && navLinksContainer.classList.contains('nav-active')) {
+            closeNav();
+        }
+    });
 
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
