@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Professional Full Stack Developer</title>
+    <link rel="icon" type="image/icon" href="assets/images/tabicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body data-theme="minimal">
+    <div id="particle-container"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <nav class="navbar">
+        <div class="logo">
+            <span class="code-tag">&lt;</span>
+            <span class="logo-text">dev</span>
+            <span class="code-tag">/ &gt;</span>
+        </div>
+        
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <ul class="nav-links">
+            <li data-target="home" class="active">Home</li>
+            <li data-target="about">About</li>
+            <li data-target="services">Services</li>
+            <li data-target="work">Work</li>
+            <li data-target="resume">Resume</li>
+            <li data-target="contact">Contact</li>
+            <li class="nav-social-top">
+                <a href="#" class="theme-toggle" title="Toggle Theme"><i class="fas fa-sun"></i></a>
+                <a href="https://www.linkedin.com/in/arunagirinathan-k/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/ARUNAGIRINATHAN-K" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.kaggle.com/arunsworkspace" target="_blank" title="Kaggle"><i class="fab fa-kaggle"></i></a>
+            </li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        <!-- Home Section -->
+        <section id="home" class="page-section active">
+            <div class="glass-container hero-glass">
+                <div class="hero-content">
+                    <h2 class="greeting">Hello, World! I am</h2>
+                    <h1 class="name">ARUNAGIRINATHAN K</h1>
+                    <div class="typewriter-container">
+                        <span id="typewriter"></span><span class="cursor">|</span>
+                    </div>
+                    <p class="description">
+                        AI & Full-Stack Developer building intelligent systems and real-world ML applications.
+                        Experienced across the full AI pipeline from data analysis and model training to scalable deployment.
+                        Working across data pipelines, ML models, and production ready AI solutions.
+                    </p>
+                    <div class="action-buttons">
+                        <button class="btn primary-btn nav-btn home-action-btn-1" data-target="work">View My Work</button>
+                        <button class="btn secondary-btn nav-btn home-action-btn-2" data-target="contact">Hire Me</button>
+                    </div>
+                    <div class="tech-stack-icons">
+                        <img src="https://raw.githubusercontent.com/ARUNAGIRINATHAN-K/ARUNAGIRINATHAN-K/main/icons/Python-Light.svg" alt="Python" title="Python">
+                        <img src="https://raw.githubusercontent.com/ARUNAGIRINATHAN-K/ARUNAGIRINATHAN-K/main/icons/TypeScript.svg" alt="TypeScript" title="TypeScript">
+                        <img src="https://raw.githubusercontent.com/ARUNAGIRINATHAN-K/ARUNAGIRINATHAN-K/main/icons/JavaScript.svg" alt="JavaScript" title="JavaScript">
+                        <img src="https://raw.githubusercontent.com/ARUNAGIRINATHAN-K/ARUNAGIRINATHAN-K/main/icons/React-Dark.svg" alt="React" title="React">
+                        <img src="https://raw.githubusercontent.com/ARUNAGIRINATHAN-K/ARUNAGIRINATHAN-K/main/icons/MySQL-Light.svg" alt="MySQL" title="MySQL">
+                        <img src="https://raw.githubusercontent.com/ARUNAGIRINATHAN-K/ARUNAGIRINATHAN-K/main/icons/AWS-Dark.svg" alt="AWS" title="AWS">
+                        <img src="https://raw.githubusercontent.com/ARUNAGIRINATHAN-K/ARUNAGIRINATHAN-K/main/icons/PyTorch-Dark.svg" alt="PyTorch" title="PyTorch">
+                        <img src="https://raw.githubusercontent.com/ARUNAGIRINATHAN-K/ARUNAGIRINATHAN-K/main/icons/TensorFlow-Dark.svg" alt="TensorFlow" title="TensorFlow">
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-wrapper">
+                        <!-- Using user's home image if available -->
+                        <img src="assets/images/home.png" alt="Developer" onerror="this.style.display='none'">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="page-section">
+            <div class="glass-container">
+                <h2 class="section-title">About <span class="highlight">Me</span></h2>
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img src="assets/images/about.png" alt="About Me" onerror="this.style.display='none'">
+                        <div class="about-badge">
+                            <a href="https://www.kaggle.com/arunsworkspace" target="_blank" rel="noopener noreferrer" title="View my Kaggle profile">
+                                <img src="https://www.kaggle.com/static/images/tiers/expert.svg" alt="Kaggle Notebook Expert" onerror="this.style.display='none'">
+                            </a>
+                            <h3>Kaggle NoteBook Expert</h3>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <h3>I build intelligent systems that solve real world problems</h3>
+                        <p>I'm Arunagirinathan, a Full-Stack and AI developer with a focus on creating intelligent, data-driven apps. 
+                            In order to address practical issues, I concentrate on creating scalable systems that combine machine learning with contemporary web technologies.
+                            My work focuses on developing useful, high impact solutions and includes frontend interfaces, backend engineering, and AI model development.</p>
+        
+                        <p>I’ve consistently focused on strengthening my expertise through hands on development, advanced learning, and industry relevant certifications, enabling me to approach problems with both analytical depth and engineering precision.</p>
+                        <div class="about-stats-container">
+                            <div class="stat-card">
+                                <h4 class="stat-number">15+</h4>
+                                <p class="stat-label">Projects Completed</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4 class="stat-number">3+</h4>
+                                <p class="stat-label">Years Experience</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4 class="stat-number">15+</h4>
+                                <p class="stat-label">GitHub Contributions</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4 class="stat-number">30+</h4>
+                                <p class="stat-label">Tech Skills</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="page-section">
+            <div class="glass-container">
+                <h2 class="section-title">My <span class="highlight">Services</span></h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-laptop-code service-icon"></i>
+                        <h3>AI-Powered Web Applications</h3>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-database service-icon"></i>
+                        <h3>Data Driven Full-Stack Developing</h3>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-brain service-icon"></i>
+                        <h3>Custom Machine Learning Solutions</h3>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-robot service-icon"></i>
+                        <h3>AI Automation for Businesses</h3>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-chart-line service-icon"></i>
+                        <h3>Data Analytics & AI Dashboards</h3>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-user-astronaut service-icon"></i>
+                        <h3>AI Agents</h3>
+                    </div>
+                    <div class="service-card">
+                        <i class="fab fa-github service-icon"></i>
+                        <h3>GitHub Open Source Contributor</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Section -->
+        <section id="work" class="page-section">
+            <div class="glass-container">
+                <h2 class="section-title">Featured <span class="highlight">Projects</span></h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-img"><img src="assets/images/project-3.png" onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"></div>
+                        <div class="project-info">
+                            <h3>Plant Disease Classification Using CNNs</h3>
+                            <p>Fine-tuned EfficientNet-B0 model that detects 38 plant leaf diseases from a single image deployed live on Hugging Face Spaces.</p>
+                            <div class="project-tech"><span>Python</span><span>Gradio</span><span>TensorFlow</span><span>Hugging Face</span></div>
+                            <a href="https://huggingface.co/spaces/ARUNAGIRINATHAN/LeafDiseaseML" class="project-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img"><img src="assets/images/project-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"></div>
+                        <div class="project-info">
+                            <h3>Carbon Footprint Calculator</h3>
+                            <p>Client-side web app that calculates users’ daily carbon footprints from activity inputs.</p>
+                            <div class="project-tech"><span>Python</span><span>Flask</span><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                            <a href="https://arunagirinathan-k.github.io/Carbon-Footprint-Calculator/" class="project-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img"><img src="assets/images/project-2.jpg" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"></div>
+                        <div class="project-info">
+                            <h3>AI Agents 2026</h3>
+                            <p>Curated list of frameworks, tools, platforms, and resources for building autonomous AI agents in 2026</p>
+                            <div class="project-tech"><span>AI</span><span>Agents</span><span>LLM</span></div>
+                            <a href="https://github.com/ARUNAGIRINATHAN-K/awesome-ai-agents" class="project-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume" class="page-section">
+            <div class="glass-container">
+                <h2 class="section-title">My <span class="highlight">Resume</span></h2>
+                <h3 class="resume-heading" style="margin-top: 50px;">Education</h3>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 - 2027</div>
+                    <h4 class="timeline-title">B.Tech in Artificial Intelligence & Data Science</h4>
+                    <p class="timeline-company">M.Kumarasamy College of Engineering</p>
+                    <p class="timeline-text">Joined Bachelor of Technology in Artificial Intelligence & Data Science.</p>
+                </div>
+                <div class="resume-content">
+                    <div class="resume-column">
+                        <h3 class="resume-heading">Experience</h3>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2025 - Present</div>
+                            <h4 class="timeline-title">Full Stack Developer</h4>
+                            <p class="timeline-company">TIH</p>
+                            <p class="timeline-text">Building full‑stack web applications with modern frameworks and tools.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">July 2025 - June 2025</div>
+                            <h4 class="timeline-title">Internship</h4>
+                            <p class="timeline-company">TNPL</p>
+                            <p class="timeline-text">Internship Trainee</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2023 - Present</div>
+                            <h4 class="timeline-title">Freelance Developer</h4>
+                            <p class="timeline-company">Self-Employed</p>
+                            <p class="timeline-text">Building AI/ML projects, data science apps, and modern web applications. Full‑Stack Web Development.</p>
+                        </div>
+
+                        
+                    </div>
+                    
+                    <div class="resume-column">
+                        <h3 class="resume-heading">Certification</h3>
+                        <div class="timeline-item">
+                            <div class="timeline-date">September 2025</div>
+                            <h4 class="timeline-title">JavaScript Mastery</h4>
+                            <p class="timeline-company">Udemy</p>
+                            <p class="timeline-text">Build 10 Real-World Applications from Scratch, learn HTML, CSS, and JavaScript natively.</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">February 2025</div>
+                            <h4 class="timeline-title">Google Advanced Data Analytics Specialization</h4>
+                            <p class="timeline-company">Google - Coursera</p>
+                            <p class="timeline-text">Explore the roles of data professionals within an organization and the tools they use to analyze data efficiently.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">April 2024</div>
+                            <h4 class="timeline-title">IBM Data Science Specialization</h4>
+                            <p class="timeline-company">IBM - Coursera</p>
+                            <p class="timeline-text">Learned the tools, languages, and libraries used by professional data scientists, including deep Python and SQL integrations.</p>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 50px; width: 100%;">
+                    <button class="btn primary-btn download-btn">
+                        <i class="fas fa-file-download" style="margin-right: 8px;"></i> Download My CV
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="page-section">
+            <div class="glass-container contact-container">
+                <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Open to Opportunities</h3>
+                        <p>I’m always open to discussing new opportunities, collaborations and software development. 
+                            Whether you have a project in mind or just want to connect, feel free to reach out.</p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>arunagirinathan3@gmail.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Tamil Nadu, India</span>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://github.com/ARUNAGIRINATHAN-K"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/arunagirinathan-k/"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <form id="contact-form" class="contact-form" action="https://formspree.io/f/mqeyjvyd" method="POST">
+                        <div class="input-group">
+                            <input type="text" id="name" name="name" required placeholder="Your Name">
+                        </div>
+                        <div class="input-group">
+                            <input type="email" id="email" name="email" required placeholder="Your Email">
+                        </div>
+                        <div class="input-group">
+                            <textarea id="message" name="message" rows="5" required placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn primary-btn submit-btn">
+                            <span>Send Message</span> <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
