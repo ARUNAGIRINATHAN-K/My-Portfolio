@@ -235,6 +235,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    overflow: visible;
 }
 
 /* Typography */
@@ -274,6 +275,16 @@ h2.section-title {
     -webkit-text-fill-color: transparent;
 }
 
+/* Responsive name handling to avoid overflow */
+.name {
+    display: block;
+    font-size: clamp(1.6rem, 5.5vw, 3rem);
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    max-width: 100%;
+}
+
 .typewriter-container {
     font-size: 1.5rem;
     font-weight: 600;
@@ -303,6 +314,7 @@ h2.section-title {
     display: flex;
     gap: 20px;
     margin-bottom: 40px;
+    flex-wrap: wrap; /* allow buttons to wrap instead of overflowing */
 }
 
 .btn {
@@ -314,6 +326,8 @@ h2.section-title {
     transition: all 0.3s ease;
     border: none;
     font-family: inherit;
+    min-width: 0; /* prevents flex children from forcing overflow */
+    box-sizing: border-box;
 }
 
 .primary-btn {
@@ -388,17 +402,24 @@ h2.section-title {
     border-radius: 20px;
     overflow: hidden;
     border: 1px solid var(--glass-border);
+    max-height: 520px; /* limit height to prevent overflow/clipping */
 }
 
 .hero-image img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     display: block;
     transition: transform 0.5s ease;
 }
 
 .hero-image:hover img {
     transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .hero-image:hover img { transform: none; }
 }
 
 .image-overlay {
@@ -882,6 +903,41 @@ h2.section-title {
 @media (max-width: 480px) {
     .glass-container {
         padding: 20px 16px;
+    }
+
+    /* Ensure hero content stays inside the card on very small screens */
+    .hero-glass {
+        grid-template-columns: 1fr !important;
+        align-items: start;
+        padding: 16px !important;
+        gap: 16px !important;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-image .image-wrapper {
+        width: 100%;
+        max-height: 320px;
+    }
+
+    .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .action-buttons .btn {
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .action-buttons {
