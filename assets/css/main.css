@@ -382,6 +382,19 @@ h2.section-title {
     color: var(--text-secondary);
 }
 
+/* Services intro highlight */
+.service-intro {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+    border: 1px solid var(--glass-border);
+    padding: 18px 20px;
+    border-radius: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 18px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+.service-intro strong { color: var(--text-primary); }
+
 .tech-stack-icons img {
     cursor: pointer;
     transition: all 0.3s ease;
