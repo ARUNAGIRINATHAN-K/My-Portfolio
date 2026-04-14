@@ -62,6 +62,11 @@ body {
     min-height: 100vh;
 }
 
+/* helper class toggled by JS to prevent page scroll when home card is fixed */
+.home-no-scroll {
+    overflow: hidden !important;
+}
+
 /* Background Gradients/Blobs */
 .blob {
     position: fixed;
@@ -209,6 +214,9 @@ body {
     animation: fade-up 0.6s ease-out forwards;
 }
 
+/* Ensure sections participate in normal flow and can be centered without overlapping */
+.page-section { position: relative; }
+
 .page-section.active {
     display: block;
 }
@@ -236,6 +244,36 @@ body {
     margin: 0 auto;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     overflow: visible;
+}
+
+/* Center the home card without overlapping other sections
+   Keep hero centered vertically for desktop but maintain flow so sections don't overlap. */
+#home.page-section.active {
+    min-height: calc(100vh - var(--nav-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 5%;
+}
+
+.hero-glass {
+    position: relative;
+    transform: none;
+    width: 100%;
+    max-width: 1100px;
+    max-height: none;
+    overflow: visible;
+    z-index: 1;
+}
+
+/* keep hero content centered and constrained so it doesn't overlap other sections */
+.hero-glass { margin: 0 auto; align-items: center; }
+.hero-content { max-width: 640px; }
+.hero-image { max-width: 460px; }
+
+@media (max-width: 900px) {
+    #home.page-section.active { min-height: auto; padding: 24px 5%; }
+    .hero-glass { width: 100%; }
 }
 
 /* Typography */
