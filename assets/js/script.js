@@ -71,14 +71,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 document.getElementById(targetId).classList.add('active');
                 
-                // Scroll to top
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
+                // Scroll to top (respect reduced-motion)
+                const doSmooth = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+                window.scrollTo({ top: 0, behavior: doSmooth });
             }
         });
     });
+    
 
     // Theme toggle logic
     const themeToggle = document.querySelector('.theme-toggle');
